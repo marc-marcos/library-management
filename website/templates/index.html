@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1> Currently in-house books</h1>
+<br />
+<div class="container-fluid">
+  <div class="px-lg-5">
+    <!-- Your banner section here -->
+
+    <div class="row">
+      {% for book in books %}
+        <div class="col-xl-4 col-lg-4 col-md-4 mb-4">
+          <div class="bg-white rounded shadow-sm">
+            <img src="https://bootstrapious.com/i/snippets/sn-gallery/img-2.jpg" alt="" class="img-fluid card-img-top">
+            <div class="p-4">
+              <h5><a href="/book/{{book.id}}" class="text-dark">{{ book.title }}</a></h5>
+              <p class="small text-muted mb-0">{{ book.author }}</p>
+              <!-- Add other book information here -->
+              <p> <b>Floor:</b> {{ book.floor }} <b>Shelf:</b> {{ book.shelf }}</p>
+            </div>
+          </div>
+        </div>
+
+        {% if forloop.counter|divisibleby:3 and not forloop.last %}
+          </div>
+          <div class="row">
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="py-5 text-right"><a href="#" class="btn btn-dark px-5 py-3 text-uppercase">Show me more</a></div>
+  </div>
+</div>
+
+
+
+{% endblock %}
