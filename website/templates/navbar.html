@@ -9,9 +9,27 @@
         </li>
         {% if user.is_superuser %}
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/addbook">Add Book</a>
+            <a class="nav-link active" aria-current="page" href="/addbook">Add book</a>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/auto_isbn">Auto isbn</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/transactions">Transaction log</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/profile">Profile</a>
+          </li>
+
         {% elif user.is_authenticated %}
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/profile">Profile</a>
+          </li>
+
         {% else %}
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/login">Login</a>

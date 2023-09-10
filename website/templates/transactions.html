@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Transactions log.</h1>
+
+  <br />
+
+  {% for transaction in transactions %}
+    {% if transaction.returned == True %}
+      <div class="card text-bg-success mb-3">
+        <div class="card-body">
+          <h5 class="card-title">{{transaction.book.title}}</h5>
+          <p class="card-text"><b>{{transaction.user.first_name}} {{transaction.user.last_name}}</b> has returned <b>{{transaction.book.title}}</b> from floor {{transaction.book.floor}} shelf {{transaction.book.shelf}}.</p>
+        </div>
+      </div>
+    {% else %}
+      <div class="card text-bg-danger mb-3">
+        <div class="card-body">
+          <h5 class="card-title">{{transaction.book.title}}</h5>
+          <p class="card-text"><b>{{transaction.user.first_name}} {{transaction.user.last_name}}</b> has withdrawn <b>{{transaction.book.title}}</b> from floor {{transaction.book.floor}} shelf {{transaction.book.shelf}}.</p>
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+
+  <a class="btn btn-secondary" href="/delete_all_transactions">Delete all transactions.</a>
+{% endblock %}

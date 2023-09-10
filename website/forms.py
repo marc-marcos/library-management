@@ -48,3 +48,6 @@ class AddBookForm(forms.ModelForm):
 class LoginForm(forms.Form):
     username = forms.CharField(max_length=150, label="", widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'}))
     password = forms.CharField(max_length=150, label="", widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}))
+
+class ISBNForm(forms.Form):
+    isbn = forms.CharField(max_length=100, label="", widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'ISBN'}))

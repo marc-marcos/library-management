@@ -1,7 +1,26 @@
 {% extends 'base.html' %}
 
 {% block content %}
+  <p>The book is {{ book.title }} by {{ book.author }}.</p>
 
-<p>The book is {{book.title}} by {{book.author}}.</p>
+  {% if request.user.is_authenticated %}
+    <a class="btn btn-secondary" href="/get/{{ book.id }}">Get</a>
+    <a class="btn btn-secondary" href="/return/{{ book.id }}">Return</a>
+  {% endif %}
 
+  <br />
+  <br />
+
+  <h2>History of transactions</h2>
+
+  <br />
+
+  {% for transaction in transactions %}
+    <div class="card text-bg-light mb-3">
+      <div class="card-header">{{ transaction.user.first_name }} {{ transaction.user.last_name }}</div>
+      <div class="card-body">
+        <p class="card-text">{{ transaction.created_at }}</p>
+      </div>
+    </div>
+  {% endfor %}
 {% endblock %}

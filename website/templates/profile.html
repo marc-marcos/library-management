@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>This should be the profile page.</h1>
+
+  <br />
+  <p>Username: {{ user.username }}</p>
+  <p>Email: {{ user.email }}</p>
+  <p>First Name: {{ user.first_name }}</p>
+  <p>Last Name: {{ user.last_name }}</p>
+
+  <br />
+  <hr />
+  <br />
+
+  <h2>List of withdrawn books</h2>
+  <br />
+
+  {% for book in books %}
+    <div class="card text-bg-light mb-3">
+      <div class="card-body">
+        <h4 class="card-title">{{ book.title }}</h4>
+        <p class="card-title">
+          <br />
+          <a class="btn btn-secondary" href="/return/{{ book.id }}">Return</a>
+        </p>
+      </div>
+    </div>
+  {% endfor %}
+{% endblock %}
