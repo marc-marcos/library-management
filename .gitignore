@@ -1,4 +1,6 @@
 secrets
+librarymanagement/_pycache__/
+website/_pycache__/
 db.sqlite3
 _pycache__/
 TODO.md
